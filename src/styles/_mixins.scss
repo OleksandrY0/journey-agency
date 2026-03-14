@@ -1,13 +1,25 @@
 @use "@/styles/_mixins.scss" as *;
 
+@mixin on-tablet {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin on-pc {
+  @media (min-width: $breakpoint-pc) {
+    @content;
+  }
+}
+
 @mixin content-padding-inline {
   padding-inline: $padding-inline-phone;
 
-  @media (min-width: $breakpoint-tablet) {
+  @include on-tablet {
     padding-inline: $padding-inline-tablet;
   }
 
-  @media (min-width: $breakpoint-pc) {
+  @include on-pc {
     padding-inline: $padding-inline-pc;
   }
 }
@@ -15,11 +27,11 @@
 @mixin header-height {
   height: $header-height-phone;
 
-  @media (min-width: $breakpoint-tablet) {
+  @include on-tablet {
     height: $header-height-tablet;
   }
 
-  @media (min-width: $breakpoint-pc) {
+  @include on-pc {
     height: $header-height-pc;
   }
 }
@@ -39,4 +51,17 @@
     $yellow-gradient-stop-1 0%,
     $yellow-gradient-stop-2 100%
   );
+}
+
+@mixin logo-text {
+  font-family: var(--font-montserrat);
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: white;
+
+  @include on-pc {
+    font-size: 24px;
+  }
 }
