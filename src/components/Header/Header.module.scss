@@ -1,0 +1,141 @@
+@use "@/styles/_mixins.scss" as *;
+@use "@/styles/_variables.scss" as *;
+
+.header {
+  @include header-padding-inline;
+  @include header-height;
+  @include blue-gradient;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: white;
+
+  &__logo {
+    &__text {
+      @include logo-text;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-pc {
+      display: flex;
+    }
+
+    gap: 40vw;
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        position: relative;
+        height: 100%;
+
+        &__link {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &__right {
+      display: flex;
+      gap: 32px;
+
+      &__contacts {
+        color: $yellow-gradient-stop-1;
+      }
+
+      &__language {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        position: relative;
+
+        &__btn {
+          color: white;
+        }
+      }
+    }
+  }
+
+  &__burger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+
+    @include on-pc {
+      display: none;
+    }
+
+    &__img {
+      object-fit: contain;
+    }
+  }
+
+  &__dropdown {
+    transition: transform 300ms ease;
+
+    &.active {
+      transform: rotate(180deg);
+    }
+  }
+
+  .dropdown_menu {
+    @include dropdown-box;
+    min-width: 200px;
+    left: -20px;
+
+    li {
+      a {
+        display: block;
+        padding: 10px 15px;
+        color: $color-gray-500;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 8px;
+        transition: background 0.2s;
+
+        &:hover {
+          background-color: $color-gray-100;
+          color: #000000;
+        }
+      }
+    }
+  }
+
+  .dropdown_languages {
+    @include dropdown-box;
+    left: -50%;
+
+    li {
+      button {
+        display: block;
+        padding: 10px 15px;
+        color: $color-gray-500;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 8px;
+        transition: background 0.2s;
+        cursor: pointer;
+        text-align: center;
+
+        &:hover {
+          background-color: $color-gray-100;
+          color: $color-gray-700;
+        }
+      }
+    }
+  }
+}
