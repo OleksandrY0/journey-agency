@@ -1,0 +1,42 @@
+@use "@/styles/_mixins.scss" as *;
+
+@mixin content-padding-inline {
+  padding-inline: $padding-inline-phone;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding-inline: $padding-inline-tablet;
+  }
+
+  @media (min-width: $breakpoint-pc) {
+    padding-inline: $padding-inline-pc;
+  }
+}
+
+@mixin header-height {
+  height: $header-height-phone;
+
+  @media (min-width: $breakpoint-tablet) {
+    height: $header-height-tablet;
+  }
+
+  @media (min-width: $breakpoint-pc) {
+    height: $header-height-pc;
+  }
+}
+
+@mixin blue-gradient {
+  background: linear-gradient(
+    90deg,
+    $blue-gradient-stop-1 0%,
+    $blue-gradient-stop-2 63%,
+    $blue-gradient-stop-3 100%
+  );
+}
+
+@mixin yellow-gradient {
+  background: linear-gradient(
+    90deg,
+    $yellow-gradient-stop-1 0%,
+    $yellow-gradient-stop-2 100%
+  );
+}
